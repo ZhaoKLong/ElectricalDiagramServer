@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.electricaldiagram.dao.PoleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.electricaldiagram.entity.Pole">
+        <id column="pole_id" property="poleId"/>
+        <result column="name" property="name"/>
+        <result column="longitude" property="longitude"/>
+        <result column="latitude" property="latitude"/>
+        <result column="remark" property="remark"/>
+        <result column="photos_url" property="photosUrl"/>
+        <result column="trunkline_id" property="trunklineId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="mod_time" property="modTime"/>
+    </resultMap>
+
+</mapper>

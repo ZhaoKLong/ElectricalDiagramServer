@@ -1,0 +1,62 @@
+fdfs:
+  connectTimeout: 600
+  pool:
+    max-total: 100
+    max-wait-millis: 100
+  soTimeout: 1500
+#  tracker-list: www.yuntsoft.com:22122
+mybatis-plus:
+  configuration:
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      column-underline: true
+      db-type: h2
+      field-strategy: not_empty
+      id-type: id_worker
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+    refresh: true
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  typeAliasesPackage: com.electricaldiagram.entity
+server:
+  port: 8989
+spring:
+  application:
+    name: version
+  datasource:
+    continue-on-error: true
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root
+    platform: h2
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/electrical_diagram?useUnicode=true&characterEncoding=utf-8&useSSL=true&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai
+    username: root
+  devtools:
+    restart:
+      enabled: false
+  h2:
+    console:
+      enabled: true
+      path: /console
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: GMT+8
+  redis:
+    database: 0
+    host: 192.168.3.11
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+    port: 7379
+    timeout: 30000
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
