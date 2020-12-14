@@ -4,6 +4,7 @@ import com.electricaldiagram.common.ResultData;
 import com.electricaldiagram.service.EquipmentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,5 +33,17 @@ public class EquipmentController {
     @GetMapping("/{equipmentId}")
     public ResultData getEquipmentListByRole(@PathVariable(value = "equipmentId") final Long equipmentId) {
         return ResultData.success(this.equipmentService.selectEquipmentById(equipmentId));
+    }
+
+    /**
+     * 根据线路查询设备
+     *
+     * @param trunklineId 线路Id
+     * @return
+     */
+    @ApiOperation(value = "根据线路查询设备")
+    @GetMapping("/selectByTrunkline/{trunklineId}")
+    public ResultData selectPole(@ApiParam(name = "trunklineId", value = "0为所有线路", required = false) @PathVariable(value = "trunklineId", required = false) final Integer trunklineId) {
+        return ResultData.success(this.equipmentService.selectEquipmentByTrunklineId(trunklineId));
     }
 }

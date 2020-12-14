@@ -1,6 +1,7 @@
 package com.electricaldiagram.dto;
 
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.electricaldiagram.entity.Pole;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -30,16 +31,22 @@ public class EquipmentDTO {
     private String name;
 
     /**
-     * 电杆名字
+     * 电杆
      */
-    @ApiModelProperty(value = "电杆名字")
-    private Long poleId;
+    @ApiModelProperty(value = "电杆")
+    private Pole pole;
 
     /**
      * 类型
      */
     @ApiModelProperty(value = "类型")
-    private Long type;
+    private Integer type;
+
+    /**
+     * 类型名称
+     */
+    @ApiModelProperty(value = "类型名称")
+    private Integer typeName;
 
     /**
      * 备注（环境信息）
@@ -58,5 +65,12 @@ public class EquipmentDTO {
      */
     @ApiModelProperty(value = "修改时间")
     private Date modTime;
+
+
+    /**
+     * 设备指向的电杆id
+     */
+    @ApiModelProperty(value = "设备指向的电杆id")
+    private Long toPoleId;
 
 }

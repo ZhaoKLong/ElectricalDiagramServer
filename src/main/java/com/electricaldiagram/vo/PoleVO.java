@@ -1,25 +1,21 @@
-package com.electricaldiagram.entity;
+package com.electricaldiagram.vo;
 
-import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
+import com.electricaldiagram.entity.Equipment;
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
-import java.io.Serializable;
-import java.util.Date;
-
 /**
- * @Description
- * @Author Zkl
- * @Date 2020-10-09
- */
-
+ * @description:
+ * @author: Zhaokl
+ * @create: 2020-10-10 17:39
+ **/
 @Data
 @TableName("pole")
-public class Pole extends Model<Pole> {
-    private static final long serialVersionUID = 8061785464739476931L;
-
+@ApiModel("PoleVO")
+public class PoleVO {
     /**
      * id
      */
@@ -42,16 +38,6 @@ public class Pole extends Model<Pole> {
     private Double latitude;
 
     /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 修改时间
-     */
-    private Date modTime;
-
-    /**
      * 备注（环境信息）
      */
     private String remark;
@@ -67,13 +53,7 @@ public class Pole extends Model<Pole> {
     private Integer trunklineId;
 
     /**
-     * 是否为厂站
+     * 设备列表
      */
-    private Integer isFactory;
-
-    @Override
-    protected Serializable pkVal() {
-        return null;
-    }
-
+    private Equipment[] equipmentList;
 }

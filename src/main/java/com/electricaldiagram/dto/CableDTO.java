@@ -1,6 +1,7 @@
 package com.electricaldiagram.dto;
 
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.electricaldiagram.entity.Pole;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -30,18 +31,6 @@ public class CableDTO {
     private String name;
 
     /**
-     * 上一电杆id
-     */
-    @ApiModelProperty(value = "上一电杆id")
-    private Long prePoleId;
-
-    /**
-     * 下一电杆id
-     */
-    @ApiModelProperty(value = "下一电杆id")
-    private Long nextPoleId;
-
-    /**
      * 电缆长度（m）
      */
     @ApiModelProperty(value = "电缆长度（m）")
@@ -54,18 +43,6 @@ public class CableDTO {
     private Long type;
 
     /**
-     * 创建时间
-     */
-    @ApiModelProperty(value = "创建时间")
-    private Date createTime;
-
-    /**
-     * 修改时间
-     */
-    @ApiModelProperty(value = "修改时间")
-    private Date modTime;
-
-    /**
      * 备注（环境信息）
      */
     @ApiModelProperty(value = "备注（环境信息）")
@@ -75,6 +52,24 @@ public class CableDTO {
      * 所属线路
      */
     @ApiModelProperty(value = "所属线路")
-    private Long trunklineId;
+    private Integer trunklineId;
+
+    /**
+     * 前一个电杆
+     */
+    @ApiModelProperty(value = "前一个电杆")
+    private Pole prev;
+
+    /**
+     * 后一个电杆
+     */
+    @ApiModelProperty(value = "后一个电杆")
+    private Pole next;
+
+    /**
+     * 是否为主干线
+     */
+    @ApiModelProperty(value = "是否为主干线")
+    private Integer isMain;
 
 }

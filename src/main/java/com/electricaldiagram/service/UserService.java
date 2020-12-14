@@ -44,4 +44,20 @@ public interface UserService extends IService<User> {
      * @return
      */
     Integer updateUser(User user);
+
+    /**
+     * 用户登录
+     *
+     * @param user
+     * @return
+     */
+    User login(User user);
+
+    /**
+     * 查询用户
+     *
+     * @param user
+     * @return
+     */
+    User selectUserOne(User user);
 }

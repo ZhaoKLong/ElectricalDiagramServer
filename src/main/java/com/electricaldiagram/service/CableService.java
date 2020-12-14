@@ -1,7 +1,10 @@
 package com.electricaldiagram.service;
 
 import com.baomidou.mybatisplus.service.IService;
+import com.electricaldiagram.dto.CableDTO;
 import com.electricaldiagram.entity.Cable;
+
+import java.util.List;
 
 /**
  * <p>
@@ -19,4 +22,20 @@ public interface CableService extends IService<Cable> {
      * @return
      */
     Cable selectCableById(Long cableId);
+
+    /**
+     * 新增电缆
+     *
+     * @param cable
+     * @return
+     */
+    Object createCable(CableDTO cable);
+
+    /**
+     * 根据线路查询电缆
+     *
+     * @param trunklineId
+     * @return
+     */
+    List<CableDTO> selectByTrunklineId(Integer trunklineId);
 }

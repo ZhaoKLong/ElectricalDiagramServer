@@ -28,11 +28,15 @@ spring:
   datasource:
     continue-on-error: true
     driver-class-name: com.mysql.jdbc.Driver
-    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
     platform: h2
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://localhost:3306/electrical_diagram?useUnicode=true&characterEncoding=utf-8&useSSL=true&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&serverTimezone=Asia/Shanghai
+#    url: jdbc:mysql://localhost:3306/electrical_diagram?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false
+
     username: root
+    password: root
+#    password: zklZsy@045
   devtools:
     restart:
       enabled: false

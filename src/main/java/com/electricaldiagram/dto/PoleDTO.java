@@ -1,10 +1,12 @@
 package com.electricaldiagram.dto;
 
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.electricaldiagram.entity.Equipment;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Description
@@ -23,7 +25,10 @@ public class PoleDTO {
     @ApiModelProperty(value = "id")
     private Long poleId;
 
-    @ApiModelProperty(value = "null")
+    /**
+     * 名称
+     */
+    @ApiModelProperty(value = "名称")
     private String name;
 
     /**
@@ -66,6 +71,23 @@ public class PoleDTO {
      * 所属线路
      */
     @ApiModelProperty(value = "所属线路")
-    private Long trunklineId;
+    private Integer trunklineId;
 
+    /**
+     * 所属线路名称
+     */
+    @ApiModelProperty(value = "所属线路名称")
+    private String trunklineName;
+
+    /**
+     * 线路列表
+     */
+    @ApiModelProperty(value = "线路列表")
+    private List<Equipment> equipmentList;
+
+    /**
+     * 是否为厂站
+     */
+    @ApiModelProperty(value = "是否为厂站")
+    private Integer isFactory;
 }

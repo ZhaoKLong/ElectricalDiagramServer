@@ -1,7 +1,10 @@
 package com.electricaldiagram.service;
 
 import com.baomidou.mybatisplus.service.IService;
+import com.electricaldiagram.dto.PoleDTO;
 import com.electricaldiagram.entity.Pole;
+
+import java.util.List;
 
 /**
  * <p>
@@ -19,4 +22,20 @@ public interface PoleService extends IService<Pole> {
      * @return
      */
     Pole selectPoleById(Long poleId);
+
+    /**
+     * 新增电杆
+     *
+     * @param pole
+     * @return
+     */
+    Object createPole(PoleDTO pole);
+
+    /**
+     * 根据线路查询电杆
+     *
+     * @param trunklineId 线路Id
+     * @return 线路列表
+     */
+    List<PoleDTO> selectPoleByTrunklineId(Integer trunklineId);
 }

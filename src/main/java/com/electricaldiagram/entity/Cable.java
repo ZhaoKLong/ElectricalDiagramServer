@@ -69,7 +69,12 @@ public class Cable extends Model<Cable> {
     /**
      * 所属线路
      */
-    private Long trunklineId;
+    private Integer trunklineId;
+
+    /**
+     * 是否为主干线
+     */
+    private Integer isMain;
 
     @Override
     protected Serializable pkVal() {

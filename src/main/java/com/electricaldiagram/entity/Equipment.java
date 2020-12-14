@@ -20,6 +20,9 @@ import java.util.Date;
 public class Equipment extends Model<Equipment> {
     private static final long serialVersionUID = 4481328994818361949L;
 
+//    public Equipment() {
+//    }
+
     /**
      * id
      */
@@ -32,19 +35,24 @@ public class Equipment extends Model<Equipment> {
     private String name;
 
     /**
-     * 电杆名字
+     * 电杆Id
      */
     private Long poleId;
 
     /**
      * 类型
      */
-    private Long type;
+    private Integer type;
 
     /**
      * 备注（环境信息）
      */
     private String remark;
+
+    /**
+     * 所属线路
+     */
+    private Integer trunklineId;
 
     /**
      * 创建时间
@@ -55,6 +63,11 @@ public class Equipment extends Model<Equipment> {
      * 修改时间
      */
     private Date modTime;
+
+    /**
+     * 设备指向的电杆id
+     */
+    private Long toPoleId;
 
     @Override
     protected Serializable pkVal() {

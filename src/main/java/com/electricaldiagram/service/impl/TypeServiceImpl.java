@@ -7,6 +7,8 @@ import com.electricaldiagram.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
  * <p>
  * 设备类型表 服务实现类
@@ -30,5 +32,18 @@ public class TypeServiceImpl extends ServiceImpl<TypeMapper, Type> implements Ty
     @Override
     public Type selectTypeById(Long typeId) {
         return this.typeMapper.selectById(typeId);
+    }
+
+    /**
+     * 新增设备类型
+     *
+     * @param type
+     * @return
+     */
+    @Override
+    public Object createType(Type type) {
+        type.setCreateTime(new Date());
+        type.setModTime(new Date());
+        return this.typeMapper.insert(type);
     }
 }

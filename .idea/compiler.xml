@@ -9,7 +9,7 @@
         <module name="ElectricalDiagramServer" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="ElectricalDiagramServer" target="1.8" />
     </bytecodeTargetLevel>
   </component>

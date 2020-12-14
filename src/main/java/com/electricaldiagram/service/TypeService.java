@@ -19,4 +19,12 @@ public interface TypeService extends IService<Type> {
      * @return
      */
     Type selectTypeById(Long typeId);
+
+    /**
+     * 新增设备类型
+     *
+     * @param type
+     * @return
+     */
+    Object createType(Type type);
 }

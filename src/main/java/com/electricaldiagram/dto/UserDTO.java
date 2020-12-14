@@ -21,7 +21,7 @@ public class UserDTO {
      * id
      */
     @ApiModelProperty(value = "id")
-    private Long userId;
+    private Integer userId;
 
     /**
      * 用户名

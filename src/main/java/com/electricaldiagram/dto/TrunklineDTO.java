@@ -21,13 +21,13 @@ public class TrunklineDTO {
      * id
      */
     @ApiModelProperty(value = "id")
-    private Long trunklineId;
+    private Integer trunklineId;
 
     /**
      * 父id
      */
     @ApiModelProperty(value = "父id")
-    private Long parentId;
+    private Integer parentId;
 
     /**
      * 线路名

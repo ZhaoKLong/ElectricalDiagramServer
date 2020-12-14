@@ -4,9 +4,11 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.electricaldiagram.dao.UserMapper;
 import com.electricaldiagram.entity.User;
 import com.electricaldiagram.service.UserService;
+import com.electricaldiagram.util.SHA1orMD5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -52,6 +54,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      */
     @Override
     public Object createUser(User user) {
+        user.setCreateTime(new Date());
+        user.setModTime(new Date());
+        user.setPassword(SHA1orMD5.md5(user.getPassword()));
         return this.userMapper.insert(user);
     }
 
@@ -63,6 +68,33 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      */
     @Override
     public Integer updateUser(User user) {
+        user.setModTime(new Date());
+        if (null != user.getPassword()) {
+            user.setPassword(SHA1orMD5.md5(user.getPassword()));
+        }
         return this.userMapper.updateById(user);
+    }
+
+    /**
+     * 用户登录
+     *
+     * @param user
+     * @return
+     */
+    @Override
+    public User login(User user) {
+        user.setPassword(SHA1orMD5.md5(user.getPassword()));
+        return this.userMapper.selectOne(user);
+    }
+
+    /**
+     * 查询用户
+     *
+     * @param user
+     * @return
+     */
+    @Override
+    public User selectUserOne(User user) {
+        return this.userMapper.selectOne(user);
     }
 }

@@ -1,14 +1,12 @@
 package com.electricaldiagram.controller.type;
 
 import com.electricaldiagram.common.ResultData;
+import com.electricaldiagram.entity.Type;
 import com.electricaldiagram.service.TypeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @description:
@@ -32,5 +30,17 @@ public class TypeController {
     @GetMapping("/{typeId}")
     public ResultData getTypeListByRole(@PathVariable(value = "typeId") final Long typeId) {
         return ResultData.success(this.typeService.selectTypeById(typeId));
+    }
+
+    /**
+     * 新增设备类型
+     *
+     * @param type
+     * @return
+     */
+    @ApiOperation(value = "新增设备类型")
+    @PostMapping()
+    public ResultData createType(@RequestBody final Type type) {
+        return ResultData.success(this.typeService.createType(type));
     }
 }

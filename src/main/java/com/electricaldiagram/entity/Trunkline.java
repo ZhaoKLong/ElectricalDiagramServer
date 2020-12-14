@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
+import io.swagger.models.auth.In;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -24,12 +25,12 @@ public class Trunkline extends Model<Trunkline> {
      * id
      */
     @TableId(value = "trunkline_id", type = IdType.AUTO)
-    private Long trunklineId;
+    private Integer trunklineId;
 
     /**
      * 父id
      */
-    private Long parentId;
+    private Integer parentId;
 
     /**
      * 线路名

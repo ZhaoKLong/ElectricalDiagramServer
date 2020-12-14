@@ -24,12 +24,17 @@ public class Type extends Model<Type> {
      * id
      */
     @TableId(value = "type_id", type = IdType.AUTO)
-    private Long typeId;
+    private Integer typeId;
 
     /**
      * 名称
      */
     private String name;
+
+    /**
+     * 汉字名称
+     */
+    private String nickname;
 
     /**
      * 创建时间

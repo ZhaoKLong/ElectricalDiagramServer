@@ -21,9 +21,12 @@ public class TypeDTO {
      * id
      */
     @ApiModelProperty(value = "id")
-    private Long typeId;
+    private Integer typeId;
 
-    @ApiModelProperty(value = "null")
+    /**
+     * 名称
+     */
+    @ApiModelProperty(value = "名称")
     private String name;
 
     /**
@@ -37,5 +40,11 @@ public class TypeDTO {
      */
     @ApiModelProperty(value = "修改时间")
     private Date modTime;
+
+    /**
+     * 汉字名称
+     */
+    @ApiModelProperty(value = "汉字名称")
+    private String nickname;
 
 }
